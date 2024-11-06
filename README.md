@@ -22,7 +22,7 @@ A simple web application to collect contact information from users and store it 
 Clone this repository to your local machine:
 
 ```bash
-git clone https://github.com/yourusername/contacts-form.git
+git clone https://github.com/junicoder/contacts-form.git
 cd contacts-form
 ```
 
