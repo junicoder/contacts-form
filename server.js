@@ -1,18 +1,20 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const xlsx = require('xlsx');
-const fs = require('fs');
 const path = require('path');
+const fs = require('fs');
 
 // Initialize the Express app
 const app = express();
 const port = 3000;
 
-// Middleware to parse JSON bodies
-app.use(bodyParser.json());
+// Serve static files (like CSS and JS)
+app.use(express.static(path.join(__dirname, 'public'))); // Make sure your public assets are in the 'public' folder
 
-// Serve static files (index.html, etc.)
-app.use(express.static('public'));
+// Serve the index.html file when someone accesses the root
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
+});
 
 // Path to the Excel file
 const excelFilePath = path.join(__dirname, 'contacts.xlsx');
@@ -34,7 +36,7 @@ function getExcelSheet() {
 // POST endpoint to handle form submissions
 app.post('/submit', (req, res) => {
     const { name, contact, organization, gender } = req.body;
-    
+
     // Read the existing sheet or create a new one
     const sheet = getExcelSheet();
 
