@@ -1,4 +1,4 @@
-```markdown
+
 # Contacts Form
 
 A simple web application to collect contact information from users and store it in an Excel file (`contacts.xlsx`). The form collects the user's **Name**, **Contact Number**, **Organization**, and **Gender**, and appends each new entry to the Excel file.
